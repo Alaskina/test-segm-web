@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+        .suslik-img {
+            max-width: 300px;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+  !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="zX2IG7lJNENmoAzpdVuENGKrZAMVFRbA";;analytics.SNIPPET_VERSION="5.2.0";
+  analytics.load("zX2IG7lJNENmoAzpdVuENGKrZAMVFRbA");
+  analytics.page();
+  }}();
+    </script>
+</head>
+<body>
+    <!-- Главная страница -->
+    <div id="home" class="page active">
+        <h1>Добро пожаловать!</h1>
+        <button onclick="showPage('register')">Регистрация</button>
+        <p><a href="#" onclick="showPage('suslik')">Узнай про суслика</a></p>
+    </div>
+
+    <!-- Страница регистрации -->
+    <div id="register" class="page">
+        <h1>Регистрация</h1>
+        <form id="regForm">
+            <input type="text" id="username" placeholder="Имя пользователя" required><br>
+            <input type="email" id="email" placeholder="Email" required><br>
+            <input type="password" id="password" placeholder="Пароль" required><br>
+            <button type="submit">Зарегистрироваться</button>
+            <button type="button" onclick="showPage('home')">Назад</button>
+        </form>
+    </div>
+
+    <!-- Страница про суслика -->
+    <div id="suslik" class="page">
+        <h1>Про суслика</h1>
+        <p>Суслик - это маленький грызун, который живет в норах и любит греться на солнышке.</p>
+        <img src="https://via.placeholder.com/300x200?text=Суслик" alt="Суслик" class="suslik-img">
+        <br>
+        <button onclick="showPage('home')">Назад</button>
+    </div>
+    
+    <script>
+        // Функция переключения страниц
+        function showPage(pageId) {
+            const pages = document.getElementsByClassName('page');
+            for (let page of pages) {
+                page.classList.remove('active');
+            }
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Обработка формы регистрации
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Здесь можно добавить логику сохранения данных
+            console.log('Новый пользователь:', {
+                username: username,
+                email: email,
+                password: password
+            });
+
+            alert('Регистрация успешна!');
+            showPage('home');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

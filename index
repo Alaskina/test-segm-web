@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+    <h1>Наслаждение или предвкушение?</h1>
+    <button onclick="window.location.href='enjoyment.html'">Наслаждение</button>
+    <button onclick="window.location.href='anticipation.html'">Предвкушение</button>
+</body>
+</html>

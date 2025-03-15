@@ -1,1 +1,1 @@
-Just first test for swgment code
+Just first test for segment code
